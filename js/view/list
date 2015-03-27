@@ -1,0 +1,103 @@
+<div class="page-header">
+			<h1>MegaTodo <small>for your self</small></h1>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Actions
+				</div>
+	    		<div class="panel-body">
+		    		<div class="btn-group btn-group-sm" role="group" aria-label="Add">
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTodo">Add todo</button>
+						<button class="btn btn-success">Add atribute</button>
+						<button class="btn btn-success">Add author</button>
+					</div>
+					<div class="btn-group btn-group-sm" role="group" aria-label="Remove">
+						<button  class="btn btn-warning"ng-click="showAdd = !showAdd">Remove selected</button>
+						<button class="btn btn-warning">Remove done</button>
+						<button class="btn btn-danger">Clear bukket</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<ul class="nav nav-pills" role="tablist">
+					<li role="presentation"><a href="#">Remaining: <span class="badge">{{remaining()}}</span></a></li>
+					<li role="presentation"><a href="#">Resolved: <span class="badge">{{resolved()}}</span></a></li>
+				</ul>
+			</div>
+			<div class="panel-body">
+				
+			</div>
+			<table class="table table-striped table-bordered">
+				<tr>
+					<th>Задача</th>
+					<th>Атрибуты</th>
+					<th>Время</th>
+					<th>Управление</th>
+				</tr>
+				<tr ng-repeat="todo in todos" class="done-{{todo.done}}">
+					<td>
+						{{todo.text}}
+					</td>
+					<td>
+						Project: <strong>{{todo.project}}</strong>
+					</td>
+					<td>
+						Total time: <strong>{{todo.time}} ms</strong>
+					</td>
+					<td>
+						<button  id="task{{$index}}" ng-click="toggleTask(todo)">Start</button>
+						<label for="done"><input type="checkbox" name="done" ng-model="todo.done"> done</label>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="row">
+			<!-- ================================ Todos ================================ -->
+			
+			<!-- ================================Add todo================================ -->
+			<div class="modal fade" id="addTodo">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+			        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        		<h4 class="modal-title">Add new task</h4>
+			      		</div>
+			      		<div class="modal-body">
+							<form class="form-horizontal" role="form" ng-submit="addTodo()">
+							  <div class="form-group">
+							    <label for="inputCaption" class="col-sm-2 control-label">Caption</label>
+							    <div class="col-sm-10">
+							      <input type="text" class="form-control" id="inputCaption" ng-model="todoText" name="caption">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label for="selectAttr" class="col-sm-2 control-label">Project</label>
+							    <div class="col-sm-10">
+							      <select  ng-model="todoAttr" class="form-control" id="selectAttr">
+									<option ng-repeat="attr in attribute">{{attr.project}}</option>
+								  </select>
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <div class="col-sm-offset-2 col-sm-10">
+							      <button type="submit" class="btn btn-default">Add</button>
+							    </div>
+							  </div>
+							</form>
+			      		</div>
+			      		<div class="modal-footer">
+
+			      		</div>
+			    	</div><!-- /.modal-content -->
+			  	</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+			<hr>
+		</div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MegaTodo">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>ToDo</title>
+</head>
+<body ng-controller="TodoCtrl">
+	<div class="container-fluid" ng-view>
+		
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="bower_components/bootstrap/dist/js/npm.js"></script>
+	<script type="text/javascript" src="js/timer.js"></script>
+	<script type="text/javascript" src="js/controller.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript">
+		var addTodoModal = $('#addTodo'),
+			addTodoModalBtn = $('#addTodo button[type="submit"]');
+		addTodoModalBtn.on('click',function(){
+			$('#addTodo').modal('toggle');
+		});
+	</script>
+</body>
+</html>
