@@ -7,17 +7,38 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>ToDo</title>
 </head>
-<body ng-controller="TodoCtrl">
+<body>
+
+	<nav class="navbar navbar-default" ng-controller="MainCtrl">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">MegaTodo</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li ng-class="menuClass('list')"><a href="#/list">List</a></li>
+            <li ng-class="menuClass('archive')"><a href="#/archive">Archive</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	
 	<div class="container-fluid" ng-view>
 		
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="bower_components/bootstrap/dist/js/npm.js"></script>
-	<script type="text/javascript" src="js/timer.js"></script>
-	<script type="text/javascript" src="js/controller.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controller.js"></script>
 	<script type="text/javascript">
 		var addTodoModal = $('#addTodo'),
 			addTodoModalBtn = $('#addTodo button[type="submit"]');
