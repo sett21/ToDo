@@ -9,6 +9,7 @@
 </head>
 <body>
 
+	<!-- Navigation -->
 	<nav class="navbar navbar-default" ng-controller="MainCtrl">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -25,26 +26,33 @@
             <li ng-class="menuClass('list')"><a href="#/list">List</a></li>
             <li ng-class="menuClass('archive')"><a href="#/archive">Archive</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 	
+	<!-- Views -->
 	<div class="container-fluid" ng-view>
 		
 	</div>
-
+	
+	<!-- Include scripts -->
 	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<script type="text/javascript" src="js/timer.js"></script>
 	<script type="text/javascript" src="js/controller.js"></script>
-	<script type="text/javascript">
+	<script type="text/javascript" src="js/route.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	
+<!--	<script type="text/javascript">
 		var addTodoModal = $('#addTodo'),
 			addTodoModalBtn = $('#addTodo button[type="submit"]');
 		addTodoModalBtn.on('click',function(){
 			$('#addTodo').modal('toggle');
 		});
-	</script>
+	</script> -->
 </body>
 </html>
