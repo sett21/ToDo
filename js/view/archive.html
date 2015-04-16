@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<p>Total time: {{totalTime()}}</p>
+	</div>
+	<div class="panel-body">
+		
+	</div>
+	<table class="table table-striped table-bordered">
+		<tr>
+			<th>Задача</th>
+			<th>Атрибуты</th>
+			<th>Время</th>
+			<th>Управление</th>
+		</tr>
+		<tr ng-repeat="todo in todos" class="done-{{todo.done}}">
+			<td>
+				{{todo.text}}
+			</td>
+			<td>
+				Project: <strong>{{todo.project}}</strong>
+			</td>
+			<td>
+				Total time: <strong>{{todo.time}} ms</strong>
+			</td>
+			<td>
+				<button  id="task{{$index}}" ng-click="toggleTask(todo)">Unresolve</button>
+			</td>
+		</tr>
+	</table>
+</div>

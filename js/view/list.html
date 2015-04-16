@@ -1,0 +1,63 @@
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					Actions
+				</div>
+	    		<div class="panel-body">
+		    		<div class="btn-group btn-group-sm" role="group" aria-label="Add">
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-success" ng-click="openModal()">Add todo</button>
+						<button class="btn btn-success">Add atribute</button>
+						<button class="btn btn-success">Add author</button>
+					</div>
+					<div class="btn-group btn-group-sm" role="group" aria-label="Remove">
+						<button  class="btn btn-warning" ng-click="showAdd = !showAdd">Remove selected</button>
+						<button class="btn btn-warning" ng-click="archive()">Remove done</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<ul class="nav nav-pills" role="tablist">
+					<li role="presentation"><a href="#/list">Remaining: <span class="badge">{{remaining()}}</span></a></li>
+					<li role="presentation"><a href="#/archive">Resolved: <span class="badge">{{resolved()}}</span></a></li>
+				</ul>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped table-bordered">
+					<tr>
+						<th>Задача</th>
+						<th>Атрибуты</th>
+						<th>Время</th>
+						<th>Управление</th>
+					</tr>
+					<tr ng-init="timerType = 'task{{$index}}'" ng-controller="TimerController" ng-repeat="todo in todos" class="done-{{todo.done}}">
+						<td>
+							{{todo.text}}
+						</td>
+						<td>
+							Project: <strong>{{todo.project}}</strong>
+						</td>
+						<td>
+							Total time: <timer autostart="false" start-time="todo.timess">{{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer><!-- <strong>{{todo.time}} ms</strong> -->
+						</td>
+						<td>
+							<button ng-click="startTimer('poll-server', todo)">Start</button>
+							<button ng-click="stopTimer('poll-server', todo)">Stop</button>
+							<label for="done"><input type="checkbox" name="done" ng-model="todo.done"> done</label>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<div class="row">
+			<!-- ================================ Todos ================================ -->
+			
+			<!-- ================================Add todo================================ -->
+			<hr>
+		</div>
